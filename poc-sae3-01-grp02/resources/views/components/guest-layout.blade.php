@@ -14,7 +14,12 @@
     @vite(['resources/css/fortify.css', 'resources/js/app.js'])
 </head>
 <body class="antialiased">
+
+
+
+
 <div class="main-container">
+
     <div class="menu">
         <nav>
             <div>
@@ -25,6 +30,18 @@
     </div>
 
     <div>
+        <div class="mauvaise-entree">
+            @if ($errors->any())
+                <div>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+
         {{ $slot }}
     </div>
 </div>

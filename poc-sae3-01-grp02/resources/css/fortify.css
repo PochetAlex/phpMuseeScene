@@ -175,3 +175,8 @@ nav a:link:last-child {
     background-color: lightcoral;
     border-radius: 10px;
 }
+
+div.mauvaise-entree {
+    text-align: center;
+    color: red;
+}
