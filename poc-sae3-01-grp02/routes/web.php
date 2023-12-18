@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SceneController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('accueil');
 });
+
+Route::get('/scene', [SceneController::class, 'scene'])->name('scene');
+
+
 
 Route::get('/home', function () {
     return view('home');
