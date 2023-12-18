@@ -20,5 +20,22 @@ class SceneController extends Controller
         return view('scene');
     }
 
+    public function equipeList()
+    {
+        //$equipes = Scene::select('nom_groupe')->distinct()->pluck('nom_groupe');
+        $equipes = None::create();
+        return view('scene', ['equipes' => $equipes]);
+    }
+
+    public function filteredScenes(Request $request)
+    {
+        $equipe = $request->input('equipe');
+
+        $filteredScenes = None::create();
+        //$filteredScenes = Scene::where('nom_groupe', $equipe)->get();
+
+        return view('scene', ['scenes' => $filteredScenes]);
+    }
+
 }
 

@@ -11,7 +11,19 @@
     <button type="submit">Afficher les scènes</button>
 </form>
 
-
+<form method="GET" action="{{ route('scene.filtered') }}">
+    @csrf
+    <label for="equipe">Filtrer par équipe :</label>
+    <select name="equipe" id="equipe">
+        @if(isset($equipes))
+            @foreach($equipes as $equipe)
+                <option value="{{ $equipe }}">{{ $equipe }}</option>
+            @endforeach
+        @endif
+        <option>Pas d'équipe</option>
+    </select>
+    <button type="submit">Filtrer</button>
+</form>
 
 
 @if(isset($scenes))

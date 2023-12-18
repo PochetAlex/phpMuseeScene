@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::get('/scene', [SceneController::class, 'scene'])->name('scene');
 
-
+Route::get('/scene/filtered', [SceneController::class, 'filteredScenes'])->name('scene.filtered');
 
 Route::get('/home', function () {
     return view('home');
