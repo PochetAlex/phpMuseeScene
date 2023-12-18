@@ -26,7 +26,7 @@ class SceneFactory extends Factory
             'lien_calcul_scene' => $this->faker->url(),
             'lien_vignette_image' => $this->faker->url(),
             'lien_calcul_image' => $this->faker->url(),
-            'user_id' => Scene::find(18)->user()->get(),
+            'user_id' => $this->faker->randomElement(\DB::table('users')->select('id')->get())->id,
         ];
     }
 }

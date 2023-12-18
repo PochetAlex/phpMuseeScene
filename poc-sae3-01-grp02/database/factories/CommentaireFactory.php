@@ -19,8 +19,8 @@ class CommentaireFactory extends Factory
         return [
             'titre' => fake()->title(),
             'texte' => fake()->text(),
-            'date_debut' => $this->faker->dateTimeThisCentury($max = '2013-01-01')->format('Y-m-d'),
-            'date_modification' => now(),
+            'scene_id' => $this->faker->randomElement(\DB::table('scenes')->select('id')->get())->id,
+            'user_id' => $this->faker->randomElement(\DB::table('users')->select('id')->get())->id,
         ];
     }
 }
