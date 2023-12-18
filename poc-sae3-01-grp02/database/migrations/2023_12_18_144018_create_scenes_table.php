@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('lien_calcul_scene');
             $table->string('lien_vignette_image');
             $table->string('lien_calcul_image');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

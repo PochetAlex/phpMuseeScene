@@ -15,6 +15,12 @@ return new class extends Migration
             $table->id()->primary();
             $table->string('titre');
             $table->string('texte');
+            $table->unsignedBigInteger('scene_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade');
+            $table->foreign('scene_id')->references('id')->on('scenes')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
