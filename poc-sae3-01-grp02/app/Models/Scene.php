@@ -22,6 +22,9 @@ class Scene extends Model
     }
 
     public function note(int $note){
-            return $this->belongsToMany(User::class, 'note');
+            return $this->belongsToMany(User::class, 'note')
+                ->as('note')
+                ->withPivot('note', 'valeur');
+
     }
 }
