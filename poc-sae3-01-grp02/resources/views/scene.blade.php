@@ -11,6 +11,11 @@
     <button type="submit">Afficher les scènes</button>
 </form>
 
+<form method="GET" action="{{ route('scene.recent') }}">
+    @csrf
+    <button type="submit">Afficher les 5 scènes les plus récentes</button>
+</form>
+
 <form method="GET" action="{{ route('scene.filtered') }}">
     @csrf
     <label for="equipe">Filtrer par équipe :</label>

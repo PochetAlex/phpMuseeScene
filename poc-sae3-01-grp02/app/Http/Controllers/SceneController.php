@@ -37,5 +37,14 @@ class SceneController extends Controller
         return view('scene', ['scenes' => $filteredScenes]);
     }
 
+    public function recentScenes()
+    {
+        //$recentScenes = Scene::orderBy('date_ajout', 'desc')->take(5)->get();
+        $recentScenes = None::create();
+        $equipes = None::create();
+        //$equipes = Scene::select('nom_groupe')->distinct()->pluck('nom_groupe');
+        return view('scene', ['scenes' => $recentScenes, 'equipes' => $equipes]);
+    }
+
 }
 
