@@ -12,5 +12,11 @@
 <header>
     <x-header></x-header>
 </header>
+
+<p>test</p>
+
+<footer>
+    <x-footer></x-footer>
+</footer>
 </body>
 </html>

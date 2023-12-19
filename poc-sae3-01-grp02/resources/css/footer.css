@@ -1,0 +1,17 @@
+footer{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    width : 100%;
+}
+
+footer > .gauche {
+    color: green;
+    margin: 50px;
+}
+
+footer > .centre{
+    color : red;
+}
+
