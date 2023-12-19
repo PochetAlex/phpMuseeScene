@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class NoteFactory extends Factory
+class FavorisFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,7 +19,6 @@ class NoteFactory extends Factory
         return [
             'scene_id' => $this->faker->randomElement(\DB::table('scenes')->select('id')->get())->id,
             'user_id' => $this->faker->randomElement(\DB::table('users')->select('id')->get())->id,
-            'valeur' => fake()->numberBetween(0,5)
         ];
     }
 }
