@@ -1,0 +1,28 @@
+.contenu > .afficher{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    gap : 50px;
+    margin-bottom: 50px;
+}
+
+.contenu > h1{
+    text-align: center;
+}
+
+.contenu{
+    margin-left: 20px;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.filtre {
+    margin-bottom: 20px;
+}
+
+table{
+    border: 2px solid black;
+}
+table td{
+    border : 1px solid black;
+}
