@@ -59,6 +59,13 @@
                 <td>{{$scene->nom_grp}}</td>
                 <td>{{$scene->created_at}}</td>
                 <td>{{$scene->lien_vignette_image}}</td>
+                <td>
+                    <form method="GET" action="{{ route('sceneDetail') }}">
+                        @csrf
+                        <input type="hidden" name="scene_id" value="{{ $scene->id }}">
+                        <button type="submit">Détails scène</button>
+                    </form>
+                </td>
             </tr>
 
         @endforeach
