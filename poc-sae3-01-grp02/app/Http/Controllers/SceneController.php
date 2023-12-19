@@ -15,16 +15,16 @@ class SceneController extends Controller
         if ($request->isMethod('get')) {
             $scenes = Scene::all();
             $equipes = Scene::select('nom_grp')->distinct()->pluck('nom_grp');
-            return view('scene', ['scenes' => $scenes, 'equipes' => $equipes]);
+            return view('accueil', ['scenes' => $scenes, 'equipes' => $equipes]);
         }
 
-        return view('scene');
+        return view('accueil');
     }
 
     public function equipeList()
     {
         $equipes = Scene::select('nom_grp')->distinct()->pluck('nom_grp');
-        return view('scene', ['equipes' => $equipes]);
+        return view('accueil', ['equipes' => $equipes]);
     }
 
     public function filteredScenes(Request $request)
@@ -34,14 +34,14 @@ class SceneController extends Controller
 
         $equipes = Scene::select('nom_grp')->distinct()->pluck('nom_grp');
 
-        return view('scene', ['scenes' => $filteredScenes, 'equipes' => $equipes]);
+        return view('accueil', ['scenes' => $filteredScenes, 'equipes' => $equipes]);
     }
 
     public function recentScenes()
     {
         $recentScenes = Scene::orderBy('date_ajout', 'desc')->take(5)->get();
         $equipes = Scene::select('nom_grp')->distinct()->pluck('nom_grp');
-        return view('scene', ['scenes' => $recentScenes, 'equipes' => $equipes]);
+        return view('accueil', ['scenes' => $recentScenes, 'equipes' => $equipes]);
     }
 
     public function sceneRating()
@@ -59,7 +59,7 @@ class SceneController extends Controller
         $scenes = Scene::whereIn('id', $sceneIDs)->get();
         $equipes = Scene::select('nom_grp')->distinct()->pluck('nom_grp');
 
-        return view('scene', ['scenes' => $scenes, 'equipes' => $equipes]);
+        return view('accueil', ['scenes' => $scenes, 'equipes' => $equipes]);
     }
 
     public function sceneDetail(Request $request)

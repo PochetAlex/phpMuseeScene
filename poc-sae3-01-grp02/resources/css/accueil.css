@@ -1,18 +1,23 @@
+body{
+    background: linear-gradient(to top, #aed6dc, #ff9a8d);}
+
 header{
-    background-color: black;
+    background: salmon;
     padding: 20px;
     width: 100%;
-    margin-bottom: 100px;
 }
 
-.centre{
-    color : orange;
+.tete {
+    color : #4A536b;
     margin: auto;
+    text-align: center;
+    background-color: darksalmon;
+    padding: 30px;
 }
 
 header a{
     text-decoration: none;
-    color : orange;
+    color : #4A536b;
     background-color: white;
     border-radius: 10px;
     padding: 10px;
@@ -37,3 +42,4 @@ header .gauche{
 header a {
     margin-left: 10px;
 }
+
