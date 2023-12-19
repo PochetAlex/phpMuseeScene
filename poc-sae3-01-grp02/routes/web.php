@@ -33,7 +33,7 @@ Route::get('/sceneDetail', [SceneController::class, 'sceneDetail'])->name('scene
 
 Route::get('/', function () {
     return view('accueil');
-})->middleware(['auth'])->name('accueil');
+})->middleware(['auth'])->name('home');
 
 Route::get('/personne', function () {
     return view('personne');
