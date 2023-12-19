@@ -16,6 +16,11 @@
     <button type="submit">Afficher les 5 scènes les plus récentes</button>
 </form>
 
+<form method="GET" action="{{ route('scene.rating') }}">
+    @csrf
+    <button type="submit">Afficher les 5 scènes les plus mieux notées</button>
+</form>
+
 <form method="GET" action="{{ route('scene.filtered') }}">
     @csrf
     <label for="equipe">Filtrer par équipe :</label>
@@ -24,10 +29,16 @@
             @foreach($equipes as $equipe)
                 <option value="{{ $equipe }}">{{ $equipe }}</option>
             @endforeach
+        @else
+            <option>Pas d'équipe</option>
         @endif
-        <option>Pas d'équipe</option>
     </select>
     <button type="submit">Filtrer</button>
+</form>
+
+<form method="GET" action="{{ route('scene') }}">
+    @csrf
+    <button type="submit">Retirer les filtres</button>
 </form>
 
 
@@ -37,36 +48,29 @@
         <tr>
             <td>nom scene</td>
             <td>nom groupe</td>
-            <td>description</td>
             <td>date ajout</td>
-            <td>texte scene</td>
-            <td>lien calcul scene</td>
             <td>lien vignette image</td>
-            <td>lien calcul image</td>
         </tr>
         </thead>
         <tbody>
         @foreach($scenes as $scene)
             <tr>
                 <td>{{$scene->nom_scene}}</td>
-                <td>{{$scene->nom_groupe}}</td>
-                <td>{{$scene->decription}}</td>
-                <td>{{$scene->date_ajout}}</td>
-                <td>{{$scene->texte_scene}}</td>
-                <td>{{$scene->lien_calcul_scene}}</td>
+                <td>{{$scene->nom_grp}}</td>
+                <td>{{$scene->created_at}}</td>
                 <td>{{$scene->lien_vignette_image}}</td>
-                <td>{{$scene->lien_calcul_image}}</td>
+                <td>
+                    <form method="GET" action="{{ route('sceneDetail') }}">
+                        @csrf
+                        <input type="hidden" name="scene_id" value="{{ $scene->id }}">
+                        <button type="submit">Détails scène</button>
+                    </form>
+                </td>
             </tr>
 
         @endforeach
         </tbody>
     </table>
-
-    <ul>
-        @foreach($scenes as $scene)
-            <li>{{ $scene->nom }} - {{ $scene->description }}</li>
-        @endforeach
-    </ul>
 @endif
 </body>
 </html>
