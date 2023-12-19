@@ -20,7 +20,7 @@
         <form action="{{ route('profile.upload') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div>
-                <h2>Choix d'une image</h2>
+                <h2>Choix d'une photo de profil : </h2>
             </div>
             <div>
                 <label for="doc">Image : </label>
@@ -31,6 +31,13 @@
             <img src="{{ Storage::url(Auth::user()->avatar_lien) }}" alt="Image de l'utilisateur">
 
     </div>
+
+    <p> Vos commentaires sur les images : </p>
+    <ul>
+        @foreach(Auth::user()->commentaire as $comment)
+            <li>{{ $comment->text }} Sur l'image N° {{$comment->scene_id}} vous avez écrit : {{ $comment->texte }}</li>
+        @endforeach
+    </ul>
 
 @endauth
 </body>
