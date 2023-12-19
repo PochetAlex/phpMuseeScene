@@ -21,10 +21,8 @@ class Scene extends Model
         return $this->belongsToMany(User::class, 'favoris');
     }
 
-    public function note(int $note){
-            return $this->belongsToMany(User::class, 'note')
-                ->as('note')
-                ->withPivot('note', 'valeur');
-
+    public function note() {
+        return $this->hasMany(Note::class, 'scene_id');
     }
+
 }

@@ -19,22 +19,23 @@
     <p>A faire !</p>
 </div>
 
-<img src="{{ $scene->lien_calcul_image }}" alt="Image calculée">
-<img src="{{ $scene->lien_vignette_image }}" alt="Vignette">
+<img src="https://picsum.photos/100/100" alt="Image calculée">
+<img src="https://picsum.photos/100/100" alt="Vignette">
 
-<!-- Afficher la note moyenne -->
-<p>Note moyenne : {{ $scene->noteMoyenne }}</p>
+<p>Note moyenne : {{ $scene->note->avg('valeur') }}</p>
 
-<h3>Commentaires :</h3>
-@if($scene->commentaires !== null && $scene->commentaires->isNotEmpty())
+
+<h2>Commentaires :</h2>
+@if($scene->commentaire->isNotEmpty())
     <ul>
-        @foreach($scene->commentaires()->orderBy('created_at', 'desc')->get() as $commentaire)
-            <li>{{ $commentaire->texte }} - {{ $commentaire->created_at }}</li>
+        @foreach($scene->commentaire as $comment)
+            <li>{{ $comment->texte }} - {{ $comment->created_at }}</li>
         @endforeach
     </ul>
 @else
     <p>Aucun commentaire disponible pour cette scène.</p>
 @endif
+
 
 </body>
 </html>
