@@ -1,12 +1,13 @@
-header{
+nav{
     background-color: black;
     padding: 20px;
     width: 100%;
 }
 
-.centre{
+.tete{
     color : orange;
-    margin: auto;
+    background-color: gray;
+    padding: 30px;
 }
 
 header a{
@@ -36,3 +37,4 @@ header .gauche{
 header a {
     margin-left: 10px;
 }
+
