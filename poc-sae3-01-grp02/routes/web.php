@@ -27,5 +27,3 @@ Route::get('/scene/recent', [SceneController::class, 'recentScenes'])->name('sce
 Route::get('/home', function () {
     return view('home');
 })->middleware(['auth'])->name('home');
-
-

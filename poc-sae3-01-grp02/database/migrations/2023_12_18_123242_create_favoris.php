@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('favoris', function (Blueprint $table) {
             $table->unsignedBigInteger('scene_id');
             $table->unsignedBigInteger('user_id');
-            $table->primary(['scene_id','user_id']);
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade');
             $table->foreign('scene_id')->references('id')->on('scenes')
