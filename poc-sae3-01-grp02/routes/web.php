@@ -31,7 +31,7 @@ Route::get('/accueil/rating', [SceneController::class, 'sceneRating'])->name('sc
 
 Route::get('/sceneDetail', [SceneController::class, 'sceneDetail'])->name('sceneDetail');
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('accueil');
 })->middleware(['auth'])->name('home');
 
