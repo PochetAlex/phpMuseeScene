@@ -42,13 +42,41 @@
 <div class="sec3">
     <h1>Nos collaborateurs</h1>
     <p>
-        ok
+    <table>
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><h2>Nike</h2></td>
+            <td>Leader mondial des articles de sport et des chaussures de sport.</td>
+        </tr>
+
+        <tr>
+            <td><h2>Adidas</h2></td>
+            <td>Fabricant mondial d'articles de sport.</td>
+        </tr>
+
+        <tr>
+            <td><h2>CodinGame</h2></td>
+            <td>Plateforme de défis de codage et de jeux de programmation.</td>
+        </tr>
+
+        <tr>
+            <td><h2>TryHackMe</h2></td>
+            <td>Plateforme en ligne pour apprendre et pratiquer les compétences en cybersécurité.</td>
+        </tr>
+        </tbody>
+    </table>
     </p>
 </div>
 <div class="sec4">
     <h1>Nos engagements</h1>
     <p>
-        ok
+        Le musée s'engage à offrir aux visiteurs une expérience immersive et éducative. À travers ses expositions variées, le musée s'efforce de captiver l'imagination des visiteurs en présentant des scènes diversifiées, reflétant des moments historiques, culturels, artistiques ou scientifiques significatifs.
     </p>
 </div>
 
