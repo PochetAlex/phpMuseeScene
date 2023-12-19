@@ -46,9 +46,11 @@ Route::GET('/personne/show', [ProfilController::class, 'show'])->name('personne.
 Route::post('/commentaire/add/{scene_id}', [CommentaireController::class, 'create'])->name('commentaire.create');
 
 
-Route::get('/home', function () {
+
+
+Route::get('/', function () {
     return view('accueil');
-})->name('home');
+})->name('accueil');
 
 Route::get('/apropos', function () {
     return view('apropos');
@@ -67,3 +69,4 @@ Route::middleware('auth')->post('/scene/{scene}/add-to-favorites', [SceneControl
 
 Route::middleware('auth')->post('/scene/{scene}/add-note', [SceneController::class, 'addSceneNote'])->name('addSceneNote');
 Route::middleware('auth')->patch('/scene/{scene}/update-note', [SceneController::class, 'updateSceneNote'])->name('updateSceneNote');
+
