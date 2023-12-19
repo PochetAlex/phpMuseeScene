@@ -11,7 +11,9 @@
 @auth
     <h1>Voici vos informations personnelles</h1>
 
-    <p> Prénom et Nom : {{ Auth::user()->name }}</p>
+    <p> Nom : {{ Auth::user()->nom }}</p>
+    <p> Prénom : {{ Auth::user()->prenom }}</p>
+    <p> Ville : {{ Auth::user()->ville }}</p>
     <p> Email : {{ Auth::user()->email }}</p>
 
     @if(Auth::user()->avatar != null)
@@ -30,6 +32,9 @@
             </div>
             <input type="submit" value="Télécharger" name="submit">
         </form>
+        @if(Auth::user()->avatar_url != null)
+            <img src="{{ Storage::url(Auth::user()->avatar_url) }}" alt="Image de l'utilisateur">
+        @endif
     </div>
 
 @endauth
