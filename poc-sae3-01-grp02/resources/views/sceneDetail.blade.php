@@ -14,9 +14,14 @@
 <h3>Équipe : {{ $scene->nom_grp }}</h3>
 
 <div>
-    <!-- Interpréter le texte Markdown -->
-    <p>Description Markdown :</p>
-    <p>A faire !</p>
+    <?php
+    $parsedown = new Parsedown();
+    $markdownContent = $scene->description;
+    $renderedContent = $parsedown->text($markdownContent);
+    ?>
+    <div>
+        {!! $renderedContent !!}
+    </div>
 </div>
 
 <img src="https://picsum.photos/100/100" alt="Image calculée">
