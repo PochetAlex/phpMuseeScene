@@ -61,5 +61,15 @@ class SceneController extends Controller
 
         return view('scene', ['scenes' => $scenes, 'equipes' => $equipes]);
     }
+
+    public function sceneDetail(Request $request)
+    {
+        $sceneId = $request->input('scene_id');
+
+        // Récupérer la scène en utilisant l'ID
+        $scene = Scene::find($sceneId);
+
+        return view('sceneDetail', ['scene' => $scene]);
+    }
 }
 
