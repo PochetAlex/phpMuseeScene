@@ -1,14 +1,11 @@
+<x-entete></x-entete>
 <nav>
     <div class="gauche">
         <a href="{{route('accueil')}}">Accueil</a>
         <a href="{{route('apropos')}}">a Propos</a>
         <a href="{{route('contact')}}">Contacts</a>
     </div>
-    <div class="centre">
-        <h1>MUSEE RAYTRACING</h1>
-    </div>
-
-    <div class="droite">
+        <div class="droite">
     @guest
         <div>
             <a href="{{route('register')}}">Enregistrement</a>
