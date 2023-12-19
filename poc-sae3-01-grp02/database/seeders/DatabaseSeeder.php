@@ -15,8 +15,10 @@ class DatabaseSeeder extends Seeder
         $this-> call(UserSeeder::class);
         $this-> call(ScenesSeeder::class);
         $this-> call(CommentairesSeeder::class);
+
         $this-> call(FavorisSeeder::class);
         $this-> call(NoteSeeder::class);
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

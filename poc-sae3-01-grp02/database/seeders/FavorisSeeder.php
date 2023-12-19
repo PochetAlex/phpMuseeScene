@@ -14,5 +14,6 @@ class FavorisSeeder extends Seeder
     public function run(): void
     {
         Favoris::factory(20)->create();
+
     }
 }

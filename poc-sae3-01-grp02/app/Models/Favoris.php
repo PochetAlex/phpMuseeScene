@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Favoris extends Model
 {
     use HasFactory;
+
+    public function scene()
+    {
+        return $this->belongsTo(Scene::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
