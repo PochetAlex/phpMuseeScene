@@ -28,6 +28,18 @@
     <img src="https://picsum.photos/100/100" alt="Vignette">
 
     <p>Note moyenne : {{ $scene->note->avg('valeur') }}</p>
+
+    @auth
+        <!-- Vérifie si la scène est dans la liste des favoris de l'utilisateur connecté -->
+        @if($scene->favoris->contains(auth()->user()))
+            <!-- Affiche un message si la scène est dans les favoris -->
+            <p>Cette scène est dans vos favoris !</p>
+        @else
+            <!-- Affiche un message si la scène n'est pas dans les favoris -->
+            <p>Cette scène n'est pas dans vos favoris.</p>
+        @endif
+    @endauth
+
     <h2>Commentaires :</h2>
     @if($scene->commentaire->isNotEmpty())
         <ul>
@@ -39,6 +51,8 @@
         <p>Aucun commentaire disponible pour cette scène.</p>
     @endif
 </div>
+
+
 
 @auth
 <h3>Ajout d'un commentaire : </h3>
