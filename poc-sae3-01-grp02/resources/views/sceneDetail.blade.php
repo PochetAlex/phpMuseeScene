@@ -26,8 +26,17 @@
 
     <img src="https://picsum.photos/100/100" alt="Image calculée">
     <img src="https://picsum.photos/100/100" alt="Vignette">
+    <p>Contenu de la scene:</p>
+    <pre>
+    <!-- Utilisation de la balise code pour appliquer la police de caractères monospace -->
+    <code>
+        {{ $scene->texte_scene }}
+    </code>
+    </pre>
 
     <x-statistiques :scene="$scene"></x-statistiques>
+
+
 
     @auth
         <!-- Vérifie si la scène est dans la liste des favoris de l'utilisateur connecté -->
