@@ -1,5 +1,8 @@
 <?php
 
+
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\SceneController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('accueil');
 });
+
+Route::get('/scene', [SceneController::class, 'scene'])->name('scene');
+
+Route::get('/scene/filtered', [SceneController::class, 'filteredScenes'])->name('scene.filtered');
+
+Route::get('/scene/recent', [SceneController::class, 'recentScenes'])->name('scene.recent');
+
+Route::get('/scene/rating', [SceneController::class, 'sceneRating'])->name('scene.rating');
+
+Route::get('/home', function () {
+    return view('home');
+})->middleware(['auth'])->name('home');
+
+Route::get('/personne', function () {
+    return view('personne');
+})->middleware(['auth'])->name('personne');
+
+Route::post('/profile/upload', [ProfilController::class, 'upload'])->name('profile.upload');
+
+Route::GET('/personne/show', [ProfilController::class, 'show'])->name('personne.show');
+

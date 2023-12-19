@@ -1,0 +1,38 @@
+header{
+    background-color: black;
+    padding: 20px;
+    width: 100%;
+}
+
+.centre{
+    color : orange;
+    margin: auto;
+}
+
+header a{
+    text-decoration: none;
+    color : orange;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+header > nav{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+header .droite{
+    margin-left: auto;
+    margin-right: 20px;
+    margin-top: 15px;
+}
+
+header .gauche{
+    margin-top: 15px;
+}
+
+header a {
+    margin-left: 10px;
+}
