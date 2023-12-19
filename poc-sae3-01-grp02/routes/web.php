@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SceneController;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,8 @@ Route::post('/profile/upload', [ProfilController::class, 'upload'])->name('profi
 
 Route::GET('/personne/show', [ProfilController::class, 'show'])->name('personne.show');
 
+Route::post('/commentaire/add/{scene_id}', [CommentaireController::class, 'create'])->name('commentaire.create');
+
 
 Route::get('/', function () {
     return view('accueil');
@@ -58,3 +61,4 @@ Route::get('/contact', function () {
 Route::get('/formulaire', function () {
     return view('formulaire');
 })->name('formulaire');
+
