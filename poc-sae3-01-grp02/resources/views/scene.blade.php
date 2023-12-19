@@ -16,6 +16,11 @@
     <button type="submit">Afficher les 5 scènes les plus récentes</button>
 </form>
 
+<form method="GET" action="{{ route('scene.rating') }}">
+    @csrf
+    <button type="submit">Afficher les 5 scènes les plus mieux notées</button>
+</form>
+
 <form method="GET" action="{{ route('scene.filtered') }}">
     @csrf
     <label for="equipe">Filtrer par équipe :</label>
@@ -24,8 +29,9 @@
             @foreach($equipes as $equipe)
                 <option value="{{ $equipe }}">{{ $equipe }}</option>
             @endforeach
+        @else
+            <option>Pas d'équipe</option>
         @endif
-        <option>Pas d'équipe</option>
     </select>
     <button type="submit">Filtrer</button>
 </form>

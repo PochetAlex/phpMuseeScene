@@ -24,6 +24,8 @@ Route::get('/scene/filtered', [SceneController::class, 'filteredScenes'])->name(
 
 Route::get('/scene/recent', [SceneController::class, 'recentScenes'])->name('scene.recent');
 
+Route::get('/scene/rating', [SceneController::class, 'sceneRating'])->name('scene.rating');
+
 Route::get('/home', function () {
     return view('home');
 })->middleware(['auth'])->name('home');
