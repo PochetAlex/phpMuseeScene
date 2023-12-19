@@ -41,6 +41,15 @@
     <p>Aucun commentaire disponible pour cette scène.</p>
 @endif
 
+<h3>Ajout d'un commentaire : </h3>
+
+<form action="{{ route('commentaire.create', ['scene_id' => $scene->id]) }}" method="post">
+    @csrf
+    <p><textarea type="text" name="texte"></textarea></p>
+    <p><button type="submit">Ajouter le commentaire</button></p>
+</form>
+
+
 
 </body>
 </html>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Commentaire;
 use Illuminate\Http\Request;
 
 class CommentaireController extends Controller
@@ -17,9 +18,21 @@ class CommentaireController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request, $scene_id)
     {
-        //
+        $request->validate([
+            'texte' => 'required|string|max:500',
+        ]);
+
+        $comment = new Commentaire();
+        $comment->titre = "commentaire ajouté";
+        $comment->texte = $request->input('texte');
+        $comment->scene_id = $scene_id;
+        $comment->user_id = auth()->id();
+
+        $comment->save();
+
+        return redirect()->back()->with('success', 'Commentaire ajouté avec succès.');
     }
 
     /**
