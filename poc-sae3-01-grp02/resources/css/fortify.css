@@ -1,8 +1,5 @@
 html {
-    height: 100%;
-    background: #222222;
     background: linear-gradient(to top, #202a16, #6a733a);
-    color: white;
 }
 
 body {
@@ -29,7 +26,7 @@ body {
 }
 
 .main-container a {
-    color: white;
+    color: black;
 }
 
 
@@ -70,7 +67,7 @@ body {
 .form-button {
     background: #69d2e7;
     border: 1px solid #ddd;
-    color: #ffffff;
+    color: black;
     padding: 10px;
     width: 100%;
     text-transform: uppercase;
@@ -116,7 +113,7 @@ nav {
 
 nav a {
     font-size: 18px;
-    color: white;
+    color: black;
     margin-right: 30px;
     display: inline-block;
 }
@@ -143,10 +140,6 @@ nav a:link:last-child {
     padding: 1.5rem;
 }
 
-.alert-success {
-    background-color: lightgreen;
-    border-radius: 10px;
-}
 
 .text-center {
     text-align: center;
@@ -163,7 +156,7 @@ nav a:link:last-child {
 .bouton {
     padding: 1rem;
     font-size: 1.2rem;
-    color: white;
+    color: black;
 }
 
 .bouton-primary {

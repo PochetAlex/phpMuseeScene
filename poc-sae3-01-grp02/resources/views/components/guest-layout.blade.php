@@ -19,16 +19,6 @@
 
 
 <div class="main-container">
-
-    <div class="menu">
-        <nav>
-            <div>
-                <a href="{{ route('login') }}">Connexion</a>
-                <a href="{{ route('register') }}">Enregistrement</a>
-            </div>
-        </nav>
-    </div>
-
     <div>
         <div class="mauvaise-entree">
             @if ($errors->any())
