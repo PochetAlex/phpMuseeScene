@@ -8,13 +8,7 @@
     <title>{{$titre ?? "Application Laravel"}}</title>
 </head>
 <body>
-</div>
-@guest
-    <div>
-        <button><a href="{{route('register')}}">📥 Enregistrement</a></button>
-        <button><a href="{{route('login')}}">😎 Connexion</a></button>
-    </div>
-@endguest
+<p>Vous etes authentifié</p>
 @auth
     <div>
         {{Auth::user()->name}}
