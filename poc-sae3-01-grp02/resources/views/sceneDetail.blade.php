@@ -28,6 +28,57 @@
     <img src="https://picsum.photos/100/100" alt="Vignette">
 
     <p>Note moyenne : {{ $scene->note->avg('valeur') }}</p>
+
+    @auth
+        <!-- Vérifie si la scène est dans la liste des favoris de l'utilisateur connecté -->
+        @if($scene->favoris->contains(auth()->user()))
+            <!-- Affiche un message si la scène est dans les favoris -->
+            <p>Cette scène est dans vos favoris !</p>
+        @else
+            <!-- Affiche un message si la scène n'est pas dans les favoris -->
+            <p>Cette scène n'est pas dans vos favoris.</p>
+        @endif
+
+        <!-- Vérifie si la scène est dans la liste des favoris de l'utilisateur -->
+        @if($scene->favoris->contains(auth()->user()))
+            <!-- Formulaire pour supprimer la scène des favoris -->
+            <form method="POST" action="{{ route('removeFromFavorites', ['scene' => $scene->id]) }}">
+                @csrf
+                @method('DELETE')
+                <button type="submit">Retirer des favoris</button>
+            </form>
+        @else
+            <!-- Formulaire pour ajouter la scène aux favoris -->
+            <form method="POST" action="{{ route('addToFavorites', ['scene' => $scene->id]) }}">
+                @csrf
+                <button type="submit">Ajouter aux favoris</button>
+            </form>
+        @endif
+
+        <!-- Vérifie si l'utilisateur a déjà attribué une note -->
+        @if($scene->note->where('user_id', auth()->user()->id)->isNotEmpty())
+            <!-- Affiche la note actuelle de l'utilisateur -->
+            <p>Votre note actuelle : {{ $scene->note->where('user_id', auth()->user()->id)->first()->valeur }}</p>
+
+            <!-- Formulaire pour modifier la note -->
+            <form method="POST" action="{{ route('updateSceneNote', ['scene' => $scene->id]) }}">
+                @csrf
+                @method('PATCH')
+                <label for="newNote">Nouvelle note :</label>
+                <input type="number" name="newNote" id="newNote" min="1" max="5" required>
+                <button type="submit">Modifier la note</button>
+            </form>
+        @else
+            <!-- Formulaire pour ajouter une nouvelle note -->
+            <form method="POST" action="{{ route('addSceneNote', ['scene' => $scene->id]) }}">
+                @csrf
+                <label for="newNote">Votre note :</label>
+                <input type="number" name="newNote" id="newNote" min="1" max="5" required>
+                <button type="submit">Donner une note</button>
+            </form>
+        @endif
+    @endauth
+
     <h2>Commentaires :</h2>
     @if($scene->commentaire->isNotEmpty())
         <ul>
@@ -39,6 +90,8 @@
         <p>Aucun commentaire disponible pour cette scène.</p>
     @endif
 </div>
+
+
 
 @auth
 <h3>Ajout d'un commentaire : </h3>

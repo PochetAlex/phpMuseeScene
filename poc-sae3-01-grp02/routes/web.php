@@ -33,7 +33,7 @@ Route::get('/sceneDetail', [SceneController::class, 'sceneDetail'])->name('scene
 
 Route::get('/', function () {
     return view('accueil');
-})->middleware(['auth'])->name('accueil');
+})->middleware(['auth'])->name('home');
 
 Route::get('/personne', function () {
     return view('personne');
@@ -62,3 +62,8 @@ Route::get('/formulaire', function () {
     return view('formulaire');
 })->name('formulaire');
 
+Route::middleware('auth')->delete('/scene/{scene}/remove-from-favorites', [SceneController::class, 'removeFromFavorites'])->name('removeFromFavorites');
+Route::middleware('auth')->post('/scene/{scene}/add-to-favorites', [SceneController::class, 'addToFavorites'])->name('addToFavorites');
+
+Route::middleware('auth')->post('/scene/{scene}/add-note', [SceneController::class, 'addSceneNote'])->name('addSceneNote');
+Route::middleware('auth')->patch('/scene/{scene}/update-note', [SceneController::class, 'updateSceneNote'])->name('updateSceneNote');
