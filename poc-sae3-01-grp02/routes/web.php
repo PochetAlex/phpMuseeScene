@@ -40,3 +40,19 @@ Route::post('/profile/upload', [ProfilController::class, 'upload'])->name('profi
 
 Route::GET('/personne/show', [ProfilController::class, 'show'])->name('personne.show');
 
+
+Route::get('/', function () {
+    return view('accueil');
+})->name('accueil');
+
+Route::get('/apropos', function () {
+    return view('apropos');
+})->name('apropos');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::get('/formulaire', function () {
+    return view('formulaire');
+})->name('formulaire');
