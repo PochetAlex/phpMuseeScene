@@ -64,3 +64,6 @@ Route::get('/formulaire', function () {
 
 Route::middleware('auth')->delete('/scene/{scene}/remove-from-favorites', [SceneController::class, 'removeFromFavorites'])->name('removeFromFavorites');
 Route::middleware('auth')->post('/scene/{scene}/add-to-favorites', [SceneController::class, 'addToFavorites'])->name('addToFavorites');
+
+Route::middleware('auth')->post('/scene/{scene}/add-note', [SceneController::class, 'addSceneNote'])->name('addSceneNote');
+Route::middleware('auth')->patch('/scene/{scene}/update-note', [SceneController::class, 'updateSceneNote'])->name('updateSceneNote');

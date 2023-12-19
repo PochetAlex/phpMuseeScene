@@ -54,6 +54,29 @@
                 <button type="submit">Ajouter aux favoris</button>
             </form>
         @endif
+
+        <!-- Vérifie si l'utilisateur a déjà attribué une note -->
+        @if($scene->note->where('user_id', auth()->user()->id)->isNotEmpty())
+            <!-- Affiche la note actuelle de l'utilisateur -->
+            <p>Votre note actuelle : {{ $scene->note->where('user_id', auth()->user()->id)->first()->valeur }}</p>
+
+            <!-- Formulaire pour modifier la note -->
+            <form method="POST" action="{{ route('updateSceneNote', ['scene' => $scene->id]) }}">
+                @csrf
+                @method('PATCH')
+                <label for="newNote">Nouvelle note :</label>
+                <input type="number" name="newNote" id="newNote" min="1" max="5" required>
+                <button type="submit">Modifier la note</button>
+            </form>
+        @else
+            <!-- Formulaire pour ajouter une nouvelle note -->
+            <form method="POST" action="{{ route('addSceneNote', ['scene' => $scene->id]) }}">
+                @csrf
+                <label for="newNote">Votre note :</label>
+                <input type="number" name="newNote" id="newNote" min="1" max="5" required>
+                <button type="submit">Donner une note</button>
+            </form>
+        @endif
     @endauth
 
     <h2>Commentaires :</h2>
