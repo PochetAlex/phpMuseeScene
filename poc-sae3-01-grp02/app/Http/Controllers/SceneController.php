@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Scene;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Note;
 use PhpOption\None;
@@ -70,6 +71,18 @@ class SceneController extends Controller
         $scene = Scene::find($sceneId);
 
         return view('sceneDetail', ['scene' => $scene]);
+    }
+
+    public function removeFromFavorites(Scene $scene)
+    {
+        Auth::user()->favoris()->detach($scene);
+        return back();
+    }
+
+    public function addToFavorites(Scene $scene)
+    {
+        Auth::user()->favoris()->attach($scene);
+        return back();
     }
 }
 

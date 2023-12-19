@@ -62,3 +62,5 @@ Route::get('/formulaire', function () {
     return view('formulaire');
 })->name('formulaire');
 
+Route::middleware('auth')->delete('/scene/{scene}/remove-from-favorites', [SceneController::class, 'removeFromFavorites'])->name('removeFromFavorites');
+Route::middleware('auth')->post('/scene/{scene}/add-to-favorites', [SceneController::class, 'addToFavorites'])->name('addToFavorites');

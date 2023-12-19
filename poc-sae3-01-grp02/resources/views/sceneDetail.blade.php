@@ -38,6 +38,22 @@
             <!-- Affiche un message si la scène n'est pas dans les favoris -->
             <p>Cette scène n'est pas dans vos favoris.</p>
         @endif
+
+        <!-- Vérifie si la scène est dans la liste des favoris de l'utilisateur -->
+        @if($scene->favoris->contains(auth()->user()))
+            <!-- Formulaire pour supprimer la scène des favoris -->
+            <form method="POST" action="{{ route('removeFromFavorites', ['scene' => $scene->id]) }}">
+                @csrf
+                @method('DELETE')
+                <button type="submit">Retirer des favoris</button>
+            </form>
+        @else
+            <!-- Formulaire pour ajouter la scène aux favoris -->
+            <form method="POST" action="{{ route('addToFavorites', ['scene' => $scene->id]) }}">
+                @csrf
+                <button type="submit">Ajouter aux favoris</button>
+            </form>
+        @endif
     @endauth
 
     <h2>Commentaires :</h2>
