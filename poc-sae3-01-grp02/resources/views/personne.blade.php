@@ -43,6 +43,14 @@
         @endforeach
     </ul>
 
+    <p> Vos scènes favorites :</p>
+    <ul>
+        @foreach(Auth::user()->favoris as $scene)
+            <li>{{ $scene->nom_scene }}</li>
+            <p>Description de la scène: {{ $scene->description }}</p>
+        @endforeach
+    </ul>
+
 @endauth
 
 <footer>
