@@ -61,3 +61,4 @@ Route::get('/contact', function () {
 Route::get('/formulaire', function () {
     return view('formulaire');
 })->name('formulaire');
+

@@ -39,25 +39,8 @@
         <p>Aucun commentaire disponible pour cette scène.</p>
     @endif
 </div>
-<<<<<<< HEAD
 
-<img src="https://picsum.photos/100/100" alt="Image calculée">
-<img src="https://picsum.photos/100/100" alt="Vignette">
-
-<p>Note moyenne : {{ $scene->note->avg('valeur') }}</p>
-
-
-<h2>Commentaires :</h2>
-@if($scene->commentaire->isNotEmpty())
-    <ul>
-        @foreach($scene->commentaire as $comment)
-            <li>{{ $comment->texte }} - {{ $comment->created_at }}</li>
-        @endforeach
-    </ul>
-@else
-    <p>Aucun commentaire disponible pour cette scène.</p>
-@endif
-
+@auth
 <h3>Ajout d'un commentaire : </h3>
 
 <form action="{{ route('commentaire.create', ['scene_id' => $scene->id]) }}" method="post">
@@ -65,13 +48,11 @@
     <p><textarea type="text" name="texte"></textarea></p>
     <p><button type="submit">Ajouter le commentaire</button></p>
 </form>
+@endauth
 
-
-=======
 <footer>
     <x-footer></x-footer>
 </footer>
->>>>>>> 69f259a594c04283b42bfdec02108827c61e104b
 
 </body>
 </html>
