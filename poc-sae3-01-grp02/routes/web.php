@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +22,9 @@ Route::get('/home', function () {
     return view('home');
 })->middleware(['auth'])->name('home');
 
+Route::get('/test', function () {
+    return view('test');
+})->middleware(['auth'])->name('test');
+
+Route::post('/profile/upload', [ProfilController::class, 'upload'])->name('profile.upload');
 
