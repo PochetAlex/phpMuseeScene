@@ -47,4 +47,6 @@ class CreateNewUser implements CreatesNewUsers
             'avatar_lien' => 'https://www.xat.com/web_gear/chat/av/17.png',
         ]);
     }
+
+
 }

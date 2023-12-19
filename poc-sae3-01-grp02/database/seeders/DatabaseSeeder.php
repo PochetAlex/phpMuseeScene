@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this-> call(UserSeeder::class);
         $this-> call(ScenesSeeder::class);
         $this-> call(CommentairesSeeder::class);
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
