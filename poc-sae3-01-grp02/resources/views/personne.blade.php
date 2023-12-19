@@ -16,10 +16,6 @@
     <p> Ville : {{ Auth::user()->ville }}</p>
     <p> Email : {{ Auth::user()->email }}</p>
 
-    @if(Auth::user()->avatar != null)
-        <img src="{{ Storage::url(Auth::user()->avatar) }}" alt="Image de l'utilisateur">
-    @endif
-
     <div>
         <form action="{{ route('profile.upload') }}" method="post" enctype="multipart/form-data">
             @csrf
@@ -32,9 +28,8 @@
             </div>
             <input type="submit" value="Télécharger" name="submit">
         </form>
-        @if(Auth::user()->avatar_url != null)
-            <img src="{{ Storage::url(Auth::user()->avatar_url) }}" alt="Image de l'utilisateur">
-        @endif
+            <img src="{{ Storage::url(Auth::user()->avatar_lien) }}" alt="Image de l'utilisateur">
+
     </div>
 
 @endauth
