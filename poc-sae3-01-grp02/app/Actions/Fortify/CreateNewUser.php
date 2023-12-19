@@ -20,7 +20,11 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input): User
     {
         Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
+            'nom' => ['required', 'string', 'max:255'],
+            'prenom' => ['required', 'string', 'max:255'],
+            'rue' => ['required', 'string', 'max:255'],
+            'ville' => ['required', 'string', 'max:255'],
+            'code_postal' => ['required', 'string', 'max:255'],
             'email' => [
                 'required',
                 'string',
@@ -32,9 +36,15 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
         return User::create([
-            'name' => $input['name'],
+            'nom' => $input['nom'],
+            'prenom' => $input['prenom'],
+            'rue' => $input['rue'],
+            'ville' => $input['ville'],
+            'code_postal' => $input['code_postal'],
+            'admin' => false,
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
+            'avatar_lien' => 'https://www.xat.com/web_gear/chat/av/17.png',
         ]);
     }
 }
