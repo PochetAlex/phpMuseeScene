@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Scene;
 use Illuminate\Http\Request;
 use PhpOption\None;
 
@@ -10,10 +11,8 @@ class SceneController extends Controller
     public function scene(Request $request)
     {
         if ($request->isMethod('get')) {
-            //$scenes = Scene::all();
-            $scenes = None::create();
-            //$equipes = Scene::select('nom_groupe')->distinct()->pluck('nom_groupe');
-            $equipes = None::create();
+            $scenes = Scene::all();
+            $equipes = Scene::select('nom_grp')->distinct()->pluck('nom_grp');
             return view('scene', ['scenes' => $scenes, 'equipes' => $equipes]);
         }
 
@@ -22,8 +21,7 @@ class SceneController extends Controller
 
     public function equipeList()
     {
-        //$equipes = Scene::select('nom_groupe')->distinct()->pluck('nom_groupe');
-        $equipes = None::create();
+        $equipes = Scene::select('nom_grp')->distinct()->pluck('nom_grp');
         return view('scene', ['equipes' => $equipes]);
     }
 
@@ -31,18 +29,15 @@ class SceneController extends Controller
     {
         $equipe = $request->input('equipe');
 
-        $filteredScenes = None::create();
-        //$filteredScenes = Scene::where('nom_groupe', $equipe)->get();
+        $filteredScenes = Scene::where('nom_grp', $equipe)->get();
 
         return view('scene', ['scenes' => $filteredScenes]);
     }
 
     public function recentScenes()
     {
-        //$recentScenes = Scene::orderBy('date_ajout', 'desc')->take(5)->get();
-        $recentScenes = None::create();
-        $equipes = None::create();
-        //$equipes = Scene::select('nom_groupe')->distinct()->pluck('nom_groupe');
+        $recentScenes = Scene::orderBy('date_ajout', 'desc')->take(5)->get();
+        $equipes = Scene::select('nom_grp')->distinct()->pluck('nom_grp');
         return view('scene', ['scenes' => $recentScenes, 'equipes' => $equipes]);
     }
 
