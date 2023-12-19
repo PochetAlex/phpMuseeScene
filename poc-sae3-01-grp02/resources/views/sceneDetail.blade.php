@@ -27,7 +27,7 @@
     <img src="https://picsum.photos/100/100" alt="Image calculée">
     <img src="https://picsum.photos/100/100" alt="Vignette">
 
-    <p>Note moyenne : {{ $scene->note->avg('valeur') }}</p>
+    <x-statistiques :scene="$scene"></x-statistiques>
 
     @auth
         <!-- Vérifie si la scène est dans la liste des favoris de l'utilisateur connecté -->
