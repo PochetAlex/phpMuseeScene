@@ -46,9 +46,9 @@ Route::GET('/personne/show', [ProfilController::class, 'show'])->name('personne.
 Route::post('/commentaire/add/{scene_id}', [CommentaireController::class, 'create'])->name('commentaire.create');
 
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('accueil');
-})->name('accueil');
+})->name('home');
 
 Route::get('/apropos', function () {
     return view('apropos');
