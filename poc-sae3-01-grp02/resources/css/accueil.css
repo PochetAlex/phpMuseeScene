@@ -1,18 +1,20 @@
-nav{
-    background-color: black;
+body{
+    background: linear-gradient(to top, #aed6dc, #ff9a8d);}
+
+header{
+    background: salmon;
     padding: 20px;
     width: 100%;
 }
 
-.tete{
-    color : orange;
-    background-color: gray;
-    padding: 30px;
+.centre{
+    color : #4A536b;
+    margin: auto;
 }
 
 header a{
     text-decoration: none;
-    color : orange;
+    color : #4A536b;
     background-color: white;
     border-radius: 10px;
     padding: 10px;
