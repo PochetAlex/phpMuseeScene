@@ -14,6 +14,8 @@
     @endguest
     @auth
         <div>
+            <button><a href="{{route('personne')}}" id="informations">Profil</a>
+            </button>
             {{Auth::user()->name}}
             <button><a href="#" id="logout">Logout</a>
             </button>
