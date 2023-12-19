@@ -7,9 +7,12 @@ header{
     width: 100%;
 }
 
-.centre{
+.tete {
     color : #4A536b;
     margin: auto;
+    text-align: center;
+    background-color: darksalmon;
+    padding: 30px;
 }
 
 header a{
