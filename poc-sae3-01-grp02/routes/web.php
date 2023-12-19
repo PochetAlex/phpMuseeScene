@@ -30,9 +30,11 @@ Route::get('/home', function () {
     return view('home');
 })->middleware(['auth'])->name('home');
 
-Route::get('/test', function () {
-    return view('test');
-})->middleware(['auth'])->name('test');
+Route::get('/personne', function () {
+    return view('personne');
+})->middleware(['auth'])->name('personne');
 
 Route::post('/profile/upload', [ProfilController::class, 'upload'])->name('profile.upload');
+
+Route::GET('/personne/show', [ProfilController::class, 'show'])->name('personne.show');
 
