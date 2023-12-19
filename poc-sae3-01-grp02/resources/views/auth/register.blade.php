@@ -8,21 +8,29 @@
             </div>
             <!--Nom Input-->
             <div class="form-group">
-                <input type="text" name="name" class="form-input" placeholder="Prénom Nom">
+                <input type="text" name="nom" class="form-input" placeholder="Nom">
             </div>
-            <!--Email Input-->
+            <div class="form-group">
+                <input type="text" name="prenom" class="form-input" placeholder="prenom">
+            </div>
+            <div class="form-group">
+                <input type="text" name="rue" class="form-input" placeholder="rue">
+            </div>
+            <div class="form-group">
+                <input type="text" name="ville" class="form-input" placeholder="ville">
+            </div>
+            <div class="form-group">
+                <input type="text" name="code_postal" class="form-input" placeholder="code_postal">
+            </div>
             <div class="form-group">
                 <input type="text" name="email" class="form-input" placeholder="email@exemple.com">
             </div>
-            <!--Password Input-->
             <div class="form-group">
                 <input type="password" name="password" class="form-input" placeholder="mot de passe">
             </div>
-            <!--Confirm Password Input-->
             <div class="form-group">
                 <input type="password" name="password_confirmation" class="form-input" placeholder="Confirmez mot de passe">
             </div>
-            <!--Login Button-->
             <div class="form-group">
                 <button class="form-button" type="submit">Enregistrement</button>
             </div>

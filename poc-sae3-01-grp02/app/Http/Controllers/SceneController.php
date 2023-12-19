@@ -30,7 +30,6 @@ class SceneController extends Controller
     public function filteredScenes(Request $request)
     {
         $equipe = $request->input('equipe');
-
         $filteredScenes = Scene::where('nom_grp', $equipe)->get();
 
         $equipes = Scene::select('nom_grp')->distinct()->pluck('nom_grp');
