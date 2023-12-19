@@ -1,5 +1,5 @@
 footer{
-    background-color: black;
+    background-color: #4A536b;
     display: flex;
     flex-direction: row;
     gap: 100px;
@@ -7,11 +7,11 @@ footer{
 }
 
 footer > .gauche {
-    color: green;
+    color : #ff9a8d;
     margin: 50px;
 }
 
 footer > .centre{
-    color : red;
+    color: #aed6dc;
 }
 
